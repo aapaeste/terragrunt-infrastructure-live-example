@@ -10,7 +10,7 @@ remote_state {
 
   config = {
     encrypt        = true
-    bucket         = "${get_env("TG_BUCKET_PREFIX", "")}terragrunt-example-terraform-state-non-prod"
+    bucket         = "${get_env("TG_BUCKET_PREFIX", "")}-terraform-state-non-prod"
     key            = "${path_relative_to_include()}/terraform.tfstate"
     region         = "us-east-1"
     dynamodb_table = "terraform-locks"
