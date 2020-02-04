@@ -1,0 +1,15 @@
+plugin: aws_ec2
+regions:
+  - us-east-1
+#boto_profile: component_profile 
+compose:
+  ansible_host: private_ip_address
+hostnames:
+  - tag:Name
+  - private-dns-name
+  - private-ip-address
+keyed_groups:
+  - key: tags['Domain']
+    prefix: auth_domain
+  - key: platform
+    prefix: platform
